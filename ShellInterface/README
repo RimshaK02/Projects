@@ -1,113 +1,37 @@
-# Shell Interface Program
+# Foobar
 
-## Description
+Foobar is a Python library for dealing with word pluralization.
 
-This program is a simple shell interface that allows users to execute shell commands, view command history, and run commands concurrently. The shell is implemented in C and provides basic functionalities similar to a Unix/Linux terminal.
+## Installation
 
-## Features
+Use the package manager [pip](https://pip.pypa.io/en/stable/) to install foobar.
 
-Execute shell commands: Users can type in any valid shell command, and the program will execute it.
+```bash
+pip install foobar
+```
 
-Command history: The program keeps a history of the last five commands entered by the user.
+## Usage
 
-Repeat last command: Users can type !! to execute the most recent command from the history.
+```python
+import foobar
 
-Concurrent execution: Users can run commands concurrently by appending & to the command.
+# returns 'words'
+foobar.pluralize('word')
 
-Exit command: The shell can be exited by typing exit.
+# returns 'geese'
+foobar.pluralize('goose')
 
-## How It Works
+# returns 'phenomenon'
+foobar.singularize('phenomena')
+```
 
-The program continuously prompts the user with osh>  to enter a command.
+## Contributing
 
-The entered command is processed and stored in a history buffer (up to the last five commands).
+Pull requests are welcome. For major changes, please open an issue first
+to discuss what you would like to change.
 
-The program checks for special commands like history or !! and handles them accordingly.
+Please make sure to update tests as appropriate.
 
-Commands are tokenized and executed using the fork() and execvp() system calls.
+## License
 
-If the command ends with &, it is run concurrently without waiting for it to complete.
-
-If the command does not end with &, the shell waits for the command to finish before continuing.
-
-Commands
-
-history: Displays the last five commands entered.
-
-!!: Executes the most recent command from history.
-
-Any shell command: Executes the specified shell command.
-
-exit: Exits the shell interface.
-
-Example Usage
-
-osh> ls
-osh> pwd
-osh> history
-3 pwd
-2 ls
-1 history
-osh> !!
-pwd
-osh> ls &
-
-Files
-
-shell.c: Contains the main implementation of the shell interface.
-
-Functions
-
-main()
-
-The main function of the program that runs the shell interface loop.
-
-executeCommand(char commandStr[])
-
-This function takes a command string as input, tokenizes it into arguments, and executes it using the execvp() function. It handles both concurrent and non-concurrent command execution.
-
-print_history(char history[][MAX_LINE], int history_count)
-
-This function prints the command history, showing the most recent commands entered by the user.
-
-How to Run
-
-Compile the program using:
-
-gcc -o shell shell.c
-
-Run the shell program:
-
-./shell
-
-Error Handling
-
-If an invalid command is entered, the program prints "Invalid command".
-
-If !! is used without any prior commands, the program prints "No commands in history".
-
-Limitations
-
-The history is limited to the last five commands.
-
-Commands longer than 80 characters are truncated.
-
-No advanced shell features like piping, redirection, or environment variable handling are included.
-
-Future Enhancements
-
-Add support for more advanced shell features like piping (|) and redirection (>, <).
-
-Increase the size of the command history buffer.
-
-Implement tab completion for commands.
-
-Dependencies
-
-Standard C libraries: stdio.h, string.h
-
-POSIX system calls: unistd.h, sys/wait.h
-
-Author
-
-This shell interface program is a simple project designed to demonstrate basic shell functionality using system calls in C.
+[MIT](https://choosealicense.com/licenses/mit/)
