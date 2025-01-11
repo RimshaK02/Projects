@@ -1,0 +1,3 @@
+Group Contributions:
+      Munir Awwad (awwadm2): Basic shell interactivity, input string processing, and execution of commands sequentially and concurrently + comments
+      Rimsha Khan (khanr144): Saving to history, printing out history in correct order, handling !! and execution of last command in history + comments
