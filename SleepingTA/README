@@ -1,0 +1,34 @@
+TA and Student Interaction Simulation Using Threads and Semaphores
+
+Project Overview:
+This project simulates the interaction between a Teaching Assistant (TA) and students seeking help using multithreading and synchronization techniques in C. The program models the behavior of a TA providing assistance to students, who wait in a queue if the TA is busy or sleeping. The synchronization between students and the TA is handled using pthreads, mutex locks, and semaphores.
+
+Features:
+Multithreading: Uses pthreads to create concurrent student and TA threads.
+Semaphore Synchronization: Uses semaphores to manage the availability of the TA and the status of the waiting chairs.
+Randomized Timing: Uses rand() to randomize the time students spend programming, asking questions, and the TA spends helping students.
+Queue Management: Manages a queue of students waiting for the TA using three chairs in a first-come, first-served manner.
+
+How It Works:
+Student Threads: Each student alternates between programming and seeking help from the TA.
+TA Thread: The TA provides help to students one at a time and goes to sleep if no students are waiting.
+Chairs: There are three chairs outside the TA's office. If all chairs are occupied, additional students must wait until a chair becomes available.
+
+Synchronization Mechanisms
+
+Semaphores:
+TA_Available: Ensures only one student is being helped by the TA at any time.
+Student_Done_Asking: Signals that a student has finished asking a question.
+TA_Done_Helping: Signals that the TA has finished helping a student.
+TA_Sleeping: Used to wake up the TA when students need help.
+chair1, chair2, chair3: Represent the three chairs outside the TA's office.
+
+Mutex Locks:
+chair_status_mutex: Ensures that the chairs_full variable (which tracks the number of occupied chairs) is updated safely by multiple threads.
+
+How to Compile and Run:
+Compilation
+gcc -o sleepingTA sleepingTA.c -lpthread
+
+Execution
+./sleepingTA
