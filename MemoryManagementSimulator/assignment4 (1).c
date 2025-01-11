@@ -1,4 +1,4 @@
-//How to compile and run -> gcc assignment4.c -o assignment4 -> ./assignment4
+//How to compile and run -> gcc mms.c -o mms -> ./mms
 
 #include <stdio.h>
 #include <stdlib.h>
