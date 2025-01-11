@@ -1,8 +1,8 @@
-#Shell Interface Program
+Shell Interface Program
 
 This program is a simple shell interface that allows users to execute shell commands, view command history, and run commands concurrently. The shell is implemented in C and provides basic functionalities similar to a Unix/Linux terminal.
 
-#Features:
+Features:
 
 Execute shell commands: Users can type in any valid shell command, and the program will execute it.
 Command history: The program keeps a history of the last five commands entered by the user.
